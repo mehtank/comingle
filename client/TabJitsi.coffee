@@ -3,7 +3,7 @@ import {useTracker} from 'meteor/react-meteor-data'
 
 import {allow} from './TabIFrame'
 import {getName} from './Name'
-import {getDark} from './Settings'
+import {getUI} from './Settings'
 import {Tabs} from '/lib/tabs'
 
 export TabJitsi = React.memo ({tabId, room}) ->
@@ -36,7 +36,7 @@ export TabJitsi = React.memo ({tabId, room}) ->
       https://github.com/jitsi/jitsi-meet/blob/master/interface_config.js
       ###
       'interfaceConfig.DEFAULT_BACKGROUND':
-        if getDark() then '#111' else '#474747'
+        if getUI('dark') then '#111' else '#474747'
       'interfaceConfig.DISABLE_VIDEO_BACKGROUND': true
       'interfaceConfig.TOOLBAR_BUTTONS': [
         'microphone', 'camera', 'closedcaptions', 'desktop',
