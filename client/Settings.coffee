@@ -47,6 +47,7 @@ addUIVar = (name, label, init) ->
   uiVars[name] = new LocalStorageVar name, init, sync: true
   uiLabels[name] = label
 
+addUIVar('quickJoin', 'Immediately change rooms on click')
 addUIVar('dark', 'Dark Mode', -> window.matchMedia('(prefers-color-scheme: dark)').matches)
 addUIVar('compact', 'Compact Room List')
 addUIVar('hideCreate', 'Hide Room Creation Widget')

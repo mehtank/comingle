@@ -37,6 +37,9 @@ export Config =
     key: 'title'  # see client/RoomList.coffee for other options
     reverse: false
 
+  ## Whether to change rooms on click (instead of needing shift-click) by default
+  default_quickJoin: false
+
   ## Whether to have a compact room list by default
   default_compact: false
 

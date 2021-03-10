@@ -379,11 +379,13 @@ export RoomInfo = React.memo ({room, search, presence, selected, selectRoom, lea
     e.preventDefault()
     e.stopPropagation()
     currentRoom = Session.get 'currentRoom'
-    ## Open room with focus in the following cases:
+    ## Open room with focus if we're not currently in this room, and any of the following cases:
     ##   * We're not in any rooms
-    ##   * Shift/Ctrl/Meta-click => force open
+    ##   * Shift/Ctrl/Meta-click xor quickJoin => force open
     ##   * We clicked on the Switch button (force == true)
-    if not currentRoom? or e.shiftKey or e.ctrlKey or e.metaKey or force == true
+    if ((not currentRoom?) or
+        ((e.shiftKey or e.ctrlKey or e.metaKey) ^ getUI('quickJoin')) or
+        (force == true)) and currentRoom != room._id
       openRoom room._id
       selectRoom null
     ## Otherwise, toggle whether this room is selected.
