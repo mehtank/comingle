@@ -419,7 +419,7 @@ export Room = React.memo ({loading, roomId, onClose, enableMaximize, maximized, 
     </OverlayTrigger>
 
   <div className="Room">
-    {unless getUI('hideroombar')
+    {unless getUI('hideRoombar')
       <div className="header">
         {leaveRoom 'leading icon-button'}
         <RoomTitle room={room} roomId={roomId}/>
